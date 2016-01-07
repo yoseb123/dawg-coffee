@@ -1,0 +1,26 @@
+<div id="header">
+    <div class="container">
+        <h1>Dawg Coffee<br/>Orders</h1>
+        <p>Supplying Beans to Sleepy Huskies since 2015</p>
+    </div>
+</div>
+<table class="table">
+	<tr>
+		<th>Item</th>
+		<th>Grind</th>
+		<th>Quantity</th>
+		<th>Unit Price</th>
+		<th>Extended Price</th>
+		<th></th>
+	</tr>
+	<tr ng-repeat="bean in shoppingList">
+		<td>{{bean.name}}</td>
+		<td>{{bean.grind}}</td>
+		<td><i class="fa fa-minus-square" ng-click="subtract(bean)"></i> {{bean.quantity}} <i class="fa fa-plus-square" ng-click="add(bean)"></i></td>
+		<td>{{bean.price | currency}}</td>
+		<td>{{bean.price * bean.quantity | currency}}</td>
+		<td ng-click="removeBean(bean)"><i class="fa fa-trash"></i></td>
+	</tr>
+</table>
+<p>Grand Total Price: {{totalPrice() | currency}}</p>
+<button class="btn btn-default" type="submit" ng-click="submit()">Purchase</button>

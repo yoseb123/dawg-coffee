@@ -1,0 +1,26 @@
+<div id="header">
+    <div class="container">
+        <h1>Dawg Coffee<br/>Orders</h1>
+        <p>Supplying Beans to Sleepy Huskies since 2015</p>
+    </div>
+</div>
+
+	<h2>Our Beans</h2>
+
+<div class="container" id="search">
+    
+<div class="form-inline">
+    <label for="searchCoffee"><i class="fa fa-search"></i></label>
+    <input id="searchCoffee" name="searchCoffee" type="text" placeholder="Search by name" class="form-control" autofocus ng-model="searchCoffeeType">
+</div>
+    
+	<div class="row" id="orderRow">
+		<div class="col-md-4 col-xs-12" ng-repeat="order in orders | orderBy:'name' | filter: searchCoffeeType">
+            <div id="coffeeType">
+                <dt><a ui-sref="detail({id: order.id})">{{order.name}}</a></dt>
+                <dd class="description">{{order.description}}</dd>
+                <dd class="price">{{order.price | currency}} <i> / lb</i> </dd>
+            </div>
+		</div>
+	</div>
+</div>

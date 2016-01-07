@@ -1,0 +1,41 @@
+
+<div id="header">
+    <div class="container">
+        <h1>Dawg Coffee<br/>Orders</h1>
+        <p>Supplying Beans to Sleepy Huskies since 2015</p>
+    </div>
+</div>
+
+<div class="container" id="beanDetail">
+    <div class="row">
+        <div class="col-xs-8">
+            <h2 id="bean-name">{{bean.name}}</h2>
+            <p><img id="bean-img" ng-src="{{bean.image}}"</p>
+            <p id="bean-description">{{bean.description}}</p>
+            <p id="bean-price">{{bean.price | currency}} <i> / lb</i></p>
+        </div>
+        <div class="col-xs-12">
+            <h2>About the grower: {{bean.grower.name}}</h2>
+            <img id="grower-img" ng-src="{{bean.grower.image}}">
+            <p id="grower-description">{{bean.grower.description}}</p>
+            <p>click <a id="grower-link" href="{{bean.grower.externalUrl}}"> here</a> to learn more about {{bean.grower.name}}</p>
+        </div>
+        <div class="col-xs-8" id="purchase">
+            <h2>Order Here</h2>
+            <form name="orderForm" id="orderForce" novalidate>
+                <label for="quantitiy"> Quantity: </label>
+                <input type="number" name="quantity" class="form-control" max="10" min="1" ng-model="bean.quantity" required>
+			<label for="grind"> Grind: </label> 
+	   		<select name="grind" class="form-control" ng-model="bean.grind" required>
+				<option value="whole-bean">Whole Bean</option>
+				<option value="expresso">Expresso</option>
+				<option value="french-press">French Press</option>
+				<option value="cone-drip-filter">Cone Drip Filter</option>
+				<option value="flat-bottom-filter">Flat Bottom Filter</option>
+	    	</select>
+	    	<br /> 
+	    	<button type="submit" class="btn btn-default" ng-click="saveToCart(bean)">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
